@@ -24,7 +24,7 @@ set_time_limit(0);
 ignore_user_abort(true);
 
 // Website IP Lock (Incase the API gets leaked)
-if($_SERVER['REMOTE_ADDRR'] != "changeme") die("You're not authorized to use this API.");
+if($_SERVER['REMOTE_ADDR'] != "changeme") die("You're not authorized to use this API.");
 
 // Is all the parameters set?
 if(empty($_GET['host']) || empty($_GET['port']) || empty($_GET['list']) || empty($_GET['time']) || empty($_GET['method'])) die("You're missing some paramters.");
@@ -37,7 +37,7 @@ $time = escapeshellcmd($_GET['time']);
 $method = escapeshellcmd($_GET['method']);
 
 // Is the SSH2 Dependency installed?
-if(!function_exists("ssh2_connect")) die("Please install the SSH3 Dependency on the Linux Server First.");
+if(!function_exists("ssh2_connect")) die("Please install the SSH2 Dependency on the Linux Server First.");
 
 if(!($con = ssh2_connect(SSH_IP, SSH_PORT))) die("Could not connect to SSH...");
 else
